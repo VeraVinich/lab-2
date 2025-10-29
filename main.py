@@ -33,13 +33,14 @@ with open("bibliography.txt", "w", encoding="utf-8") as f:
 #task 4
 tree = ET.parse('currency.xml')
 root = tree.getroot()
-
+CharCode_list = []
+for val in root.findall('.//Valute'):
+        if int(val.find('Nominal').text) in (10, 100):
+            CharCode_list.append(val.find('CharCode').text)
 
 if __name__ == "__main__":
-    print("ans1:", count)
-    print('ans2:', len(filter))
-    print("Библиография сохранена")
-    for val in root.findall('.//Valute'):
-        if int(val.find('Nominal').text) in (10, 100):
+   print("Ans 1:", count)
+    print("Ans 2:", len(filter))
+    print("Ans 3: Библиография успешно сохранена")
+    print("Ans 4:", " ".join(CharCode_list))
 
-            print(val.find('CharCode').text)
