@@ -38,7 +38,8 @@ root = tree.getroot()
 if __name__ == "__main__":
     print("ans1:", count)
     print('ans2:', len(filter))
-    print("Библиография успешно сохранена в файл")
+    print("Библиография сохранена")
     for val in root.findall('.//Valute'):
         if int(val.find('Nominal').text) in (10, 100):
+
             print(val.find('CharCode').text)
